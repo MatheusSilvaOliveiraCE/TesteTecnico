@@ -63,7 +63,10 @@ public class AccountTransaction {
 		page.setTransactionValue("35");
 		page.confirmWithDrawl();
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='btn btn-lg tab' and @ng-click='transactions()']")));
+		try {
+			Thread.sleep(2500);
+		} catch (InterruptedException e) {
+		}
 		page.clickTransaction();
 		page.clickDatetime();
 		Assert.assertTrue(page.checkTransaction("10", "Credit"));
